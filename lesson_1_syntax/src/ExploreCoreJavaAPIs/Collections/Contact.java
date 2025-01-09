@@ -1,4 +1,4 @@
-package Collections;
+package ExploreCoreJavaAPIs.Collections;
 
 public class Contact {
     private  String name;

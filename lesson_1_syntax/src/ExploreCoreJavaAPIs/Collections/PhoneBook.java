@@ -1,4 +1,4 @@
-package Collections;
+package ExploreCoreJavaAPIs.Collections;
 
 import java.util.ArrayList;
 import java.util.List;

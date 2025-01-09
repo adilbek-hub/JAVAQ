@@ -5,9 +5,10 @@ import OOP.Inheritens.Encapsulation.Cat;
 import OOP.Inheritens.Encapsulation.Person;
 import OOP.Inheritens.Polimorphism.Animal;
 import OOP.Inheritens.Polimorphism.Dog;
-import Collections.*;
+import ExploreCoreJavaAPIs.Collections.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 //
 public class Main {
@@ -201,6 +202,34 @@ System.out.println("___________________________________________");
     myPhoneBook.displayAllContacts();
     myPhoneBook.removeContact("Adilbek");
     myPhoneBook.displayAllContacts();
+
+
+        System.out.println("_____STREAM_______________");
+        System.out.println("_____STREAM филтрлөө_______________");
+        List<String> namess = Arrays.asList("Asan", "Uson", "Janysh", "Bayish", "Akak");
+        namess.stream().filter(name-> name.startsWith("A")).forEach(System.out::println);
+        System.out.println("_____ Сандарды көбөйтүү жана топтоо:_______________");
+        List<Integer> numberss = Arrays.asList(1,2,3,4,5);
+        // Сандарды квадраттап, жыйынтыгын кошуу
+        int sum = numbers.stream()
+                .map(n -> n * n) // Квадратка көбөйтүү
+                .reduce(2, Integer::sum); // Бардык квадраттарды кошуу
+
+        System.out.println("Жыйынтык: " + sum);
+
+        System.out.println("_____ Шаарларды алфавиттик тартипте иреттөө_______________");
+        List<String> cities = Arrays.asList("Bishkek", "Naryn", "Tokmok", "Karakol");
+        // collect() – жыйынтыкты кайрадан коллекцияга топтойт.
+        List<String> sortedCities = cities.stream().sorted().collect(Collectors.toList());
+        System.out.println(sortedCities);
+
+        System.out.println("_____ Javaдагы distinct() методу – бул Stream API операцияларынын бири. Ал агымдагы элементтердин арасынан кайталанган элементтерди алып салат жана жалаң гана уникалдуу элементтерди кайтарат._______________");
+        List<Integer> nums = Arrays.asList(1,2,2,3,3,4,4,5,5,6,6);
+        nums.stream().distinct().forEach(System.out :: println);
+        System.out.println("_____ Java'дагы limit() методу – бул Stream API операциясы, ал агымдагы элементтердин белгилүү бир санын алуу үчүн колдонулат._______________");
+        nums.stream().limit(2).forEach(System.out::println);
+
+
 
 
 
